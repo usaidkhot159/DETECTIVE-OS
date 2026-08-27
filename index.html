@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Detective — Case Files</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/desktop.css" />
+  <link rel="stylesheet" href="css/windows.css" />
+  <link rel="stylesheet" href="css/widgets.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/apps.css" />
+</head>
+<body>
+
+<!-- Boot Screen -->
+<div id="boot-screen">
+  <div class="boot-content">
+    <div class="boot-logo">🕵️</div>
+    <div class="boot-title">DETECTIVE<span class="accent">OS</span></div>
+    <div class="boot-version">v2.7.4 — CLASSIFIED BUILD</div>
+    <div class="boot-progress">
+      <div class="boot-bar" id="boot-bar"></div>
+    </div>
+    <div class="boot-log" id="boot-log"></div>
+  </div>
+</div>
+
+<!-- CRT Overlay -->
+<div class="crt-overlay" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- Desktop -->
+<div id="desktop" class="hidden">
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <div class="taskbar-left">
+      <div class="os-logo">🕵️ <span>DetectiveOS</span></div>
+      <div class="taskbar-divider"></div>
+      <div id="taskbar-apps" class="taskbar-apps"></div>
+    </div>
+    <div class="taskbar-right">
+      <div id="case-status" class="case-status">
+        <span class="status-dot"></span>
+        <span>CASE #001 — OPEN</span>
+      </div>
+      <div class="taskbar-divider"></div>
+      <div id="clock" class="taskbar-clock"></div>
+    </div>
+  </div>
+
+  <!-- Desktop Icons -->
+  <div id="desktop-icons">
+    <div class="desktop-icon" data-app="caseFile" tabindex="0">
+      <div class="icon-img">📁</div>
+      <div class="icon-label">Case File</div>
+    </div>
+    <div class="desktop-icon" data-app="evidence" tabindex="0">
+      <div class="icon-img">🔎</div>
+      <div class="icon-label">Evidence</div>
+    </div>
+    <div class="desktop-icon" data-app="suspects" tabindex="0">
+      <div class="icon-img">👥</div>
+      <div class="icon-label">Suspects</div>
+    </div>
+    <div class="desktop-icon" data-app="timeline" tabindex="0">
+      <div class="icon-img">🕐</div>
+      <div class="icon-label">Timeline</div>
+    </div>
+    <div class="desktop-icon" data-app="messages" tabindex="0">
+      <div class="icon-img">💬</div>
+      <div class="icon-label">Messages</div>
+    </div>
+    <div class="desktop-icon" data-app="email" tabindex="0">
+      <div class="icon-img">📧</div>
+      <div class="icon-label">Mail</div>
+    </div>
+    <div class="desktop-icon" data-app="map" tabindex="0">
+      <div class="icon-img">🗺️</div>
+      <div class="icon-label">Locations</div>
+    </div>
+    <div class="desktop-icon" data-app="notes" tabindex="0">
+      <div class="icon-img">📝</div>
+      <div class="icon-label">My Notes</div>
+    </div>
+    <div class="desktop-icon" data-app="board" tabindex="0">
+      <div class="icon-img">🧠</div>
+      <div class="icon-label">Evidence Board</div>
+    </div>
+    <div class="desktop-icon" data-app="phone" tabindex="0">
+      <div class="icon-img">📱</div>
+      <div class="icon-label">Phone</div>
+    </div>
+    <div class="desktop-icon" data-app="puzzles" tabindex="0">
+      <div class="icon-img">🧩</div>
+      <div class="icon-label">Puzzles</div>
+    </div>
+    <div class="desktop-icon" data-app="accuse" tabindex="0">
+      <div class="icon-img">🎯</div>
+      <div class="icon-label">Final Report</div>
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container"></div>
+
+  <!-- Notification Area -->
+  <div id="notifications"></div>
+
+</div>
+
+<!-- Templates -->
+<template id="tpl-window">
+  <div class="app-window" role="dialog">
+    <div class="window-titlebar">
+      <div class="window-title-left">
+        <span class="window-icon"></span>
+        <span class="window-title-text"></span>
+      </div>
+      <div class="window-controls">
+        <button class="win-btn win-min" title="Minimize">─</button>
+        <button class="win-btn win-max" title="Maximize">□</button>
+        <button class="win-btn win-close" title="Close">✕</button>
+      </div>
+    </div>
+    <div class="window-body"></div>
+  </div>
+</template>
+
+<script src="data/case001.js"></script>
+<script src="js/state.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/desktop.js"></script>
+<script src="js/windows.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/apps/caseFile.js"></script>
+<script src="js/apps/evidence.js"></script>
+<script src="js/apps/suspects.js"></script>
+<script src="js/apps/timeline.js"></script>
+<script src="js/apps/messages.js"></script>
+<script src="js/apps/email.js"></script>
+<script src="js/apps/map.js"></script>
+<script src="js/apps/notes.js"></script>
+<script src="js/apps/board.js"></script>
+<script src="js/apps/phone.js"></script>
+<script src="js/apps/puzzles.js"></script>
+<script src="js/apps/accuse.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
